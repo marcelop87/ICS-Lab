@@ -56,7 +56,7 @@ def analyze_data(data):
   # Perform basic data analysis
   container.write(" # Data Analysis # ")
   container.write("Last Data Uploaded")
-  container.write(data.set_index('Fecha').sort_index().tail())
+  container.write(data.set_index('Fecha').sort_index(ascending=False).head())
   #container.write("Description")
   #container.write(data.describe())
   #container.write("Data Corelation")
