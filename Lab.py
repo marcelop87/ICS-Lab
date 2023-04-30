@@ -196,8 +196,8 @@ def main():
 
       create_chart(chart_type, data, x_column, y_column)
 
-     if options =='Data Prediction': 
-       predict_values(data)
+    if options =='Data Prediction': 
+      predict_values(data)
 
 
 
