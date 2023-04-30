@@ -29,7 +29,7 @@ def load_data(file):
 
 
 def sort_data(df):
-st.sidebar.header("Data Filtering")
+  st.sidebar.header("Data Filtering")
 
   # Sort Data
   sort_column = st.sidebar.selectbox("Sort by", df.columns)
