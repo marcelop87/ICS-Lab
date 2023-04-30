@@ -17,8 +17,8 @@ def load_data(file):
   sheets = ['ICS-2', 'ICS-X1', 'ICS-3', 'AQUIO-X1001', 'Sep. Entrada']
   dfl = []
   for sheet in sheets:
-  dfm = pd.read_excel(file, sheet_name= sheet , header=1, usecols='A,F:O').drop([0,1,2], axis=0,)
-  dfl.append(dfm)
+    dfm = pd.read_excel(file, sheet_name= sheet , header=1, usecols='A,F:O').drop([0,1,2], axis=0,)
+    dfl.append(dfm)
 
   df= pd.concat(dfl, keys= sheets, names= ['Pozo'])
   df= df.replace({'\-' : np.nan , '\*' : np.nan, '^\s*$': np.nan }, regex=True)
