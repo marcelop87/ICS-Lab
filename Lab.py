@@ -24,8 +24,7 @@ def load_data(file):
   df= df.replace({'\-' : np.nan , '\*' : np.nan, '^\s*$': np.nan }, regex=True)
   df.reset_index(inplace=True, level='Pozo')
   df.dropna(subset='Fecha', inplace=True)
-  df['Fecha'] = pd.to_datetime(df['Fecha']).dt.date
-  #df.Fecha = df.Fecha.dt.date
+  df.Fecha = df.Fecha.dt.date
   return df
 
 
@@ -46,11 +45,11 @@ def sort_data(df):
   #grouped_df = df.groupby(group_column).sum()
   #return grouped_df
 
-def group_by_mean(df):
+#def group_by_mean(df):
   # Group Data
-  group_column = st.sidebar.selectbox("Group by Mean",df.columns)
-  grouped_df_mean = df.groupby(group_column).mean()
-  return grouped_df_mean 
+  #group_column = st.sidebar.selectbox("Group by Mean",df.columns)
+  #grouped_df_mean = df.groupby(group_column).mean()
+  #return grouped_df_mean 
 
 
 def analyze_data(data):
