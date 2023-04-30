@@ -11,7 +11,7 @@ col1,col2 = st.columns(2)
 
 
 
-@st.cache
+@st.cache_data
 def load_data(file):
 
   sheets = ['ICS-2', 'ICS-X1', 'ICS-3', 'AQUIO-X1001', 'Sep. Entrada']
