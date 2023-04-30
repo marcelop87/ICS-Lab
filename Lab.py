@@ -101,9 +101,9 @@ def analyze_data(data):
   #container.write("Group by sum")
   #container.write(groupBySum)
 
-  groupByMean = group_by_mean(data)
-  container.write("Group by mean")
-  container.write(groupByMean)
+  #groupByMean = group_by_mean(data)
+  #container.write("Group by mean")
+  #container.write(groupByMean)
 
 def create_chart(chart_type, data, x_column, y_column):
 
