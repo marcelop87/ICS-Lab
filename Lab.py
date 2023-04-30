@@ -24,7 +24,8 @@ def load_data(file):
   df= df.replace({'\-' : np.nan , '\*' : np.nan, '^\s*$': np.nan }, regex=True)
   df.reset_index(inplace=True, level='Pozo')
   df.dropna(subset='Fecha', inplace=True)
-  df.Fecha = df.Fecha.dt.date
+  df['Fecha'] = pd.to_datetime(df['Fecha'])
+  #df.Fecha = df.Fecha.dt.date
   return df
 
 
