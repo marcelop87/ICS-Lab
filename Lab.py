@@ -130,21 +130,21 @@ def create_chart(chart_type, data, x_column, y_column):
     st.plotly_chart(fig)
 
 
-def predict_values(data):
+ def predict_values(data):
 
   st.title("Software for Prediction")
 
-  st.write("""### We need some information to predict values""")
-  datos = data
-  sel_pozo = st.selectbox("Select Well", datos.Pozo.unique())
-  sel_value = st.selectbox("Select Value to Predict", datos.columns[2:])
-  sel_date = st.date_input("Select the date to make the Prediction").toordinal()
-  ok = st.button("Calculate Prediction") 
+   st.write("""### We need some information to predict values""")
+   datos = data
+   sel_pozo = st.selectbox("Select Well", datos.Pozo.unique())
+   sel_value = st.selectbox("Select Value to Predict", datos.columns[2:])
+   #sel_date = st.date_input("Select the date to make the Prediction").toordinal()
+   #ok = st.button("Calculate Prediction") 
 
-  if ok:
-    datos[datos['Pozo'] == sel_pozo]
-    datos.dropna(subset=[sel_value], inplace=True) 
-    datos.reset_index(inplace=True, drop=True)
+   #if ok:
+     #datos[datos['Pozo'] == sel_pozo]
+     #datos.dropna(subset=[sel_value], inplace=True) 
+     #datos.reset_index(inplace=True, drop=True)
 
     #X = datos.Fecha.apply(lambda x: x.toordinal()) 
     #y = datos[sel_value]
@@ -197,8 +197,8 @@ def main():
 
       create_chart(chart_type, data, x_column, y_column)
 
-    if options =='Data Prediction': 
-      predict_values(data)
+     if options =='Data Prediction': 
+       predict_values(data)
 
 
 
