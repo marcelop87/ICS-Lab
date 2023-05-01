@@ -34,7 +34,7 @@ def sort_data(df):
   # Sort Data
   sort_column = st.sidebar.selectbox("Sort by", df.columns)
   df = df.sort_values(by=sort_column)
-  df.fillna(value=pd.np.nan, inplace=True)
+  df.fillna(value= None, inplace=True)
   df.reset_index(inplace=True, drop=True)
   return df
 
