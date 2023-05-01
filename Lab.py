@@ -21,8 +21,7 @@ def load_data(file):
     dfl.append(dfm)
 
   df= pd.concat(dfl, keys= sheets, names= ['Pozo'])
-  df= df.replace({'\-' : np.nan , '\*' : np.nan, '^\s*$': np.nan }, regex=True)
-  df.fillna()
+  df= df.replace({'\-' : np.nan , '\*' : np.nan, '^\s*$', None: np.nan }, regex=True)
   df.reset_index(inplace=True, level='Pozo')
   df.dropna(subset='Fecha', inplace=True)
   df.Fecha = df.Fecha.dt.date
