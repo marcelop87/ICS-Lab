@@ -33,8 +33,7 @@ def sort_data(df):
 
   # Sort Data
   sort_column = st.sidebar.selectbox("Sort by", df.columns)
-  df = df.sort_values(by=sort_column)
-  df.sort_values(by=['Fecha'], inplace= True)
+  df = df.sort_values(by=[sort_column, 'Fecha'])
   df.reset_index(inplace=True, drop=True)
   return df
 
