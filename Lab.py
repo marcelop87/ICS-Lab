@@ -25,6 +25,7 @@ def load_data(file):
   df.reset_index(inplace=True, level='Pozo')
   df.dropna(subset='Fecha', inplace=True)
   df.Fecha = df.Fecha.dt.date
+  df.sort_values(by=['Fecha'], inplace= True)
   return df
 
 
