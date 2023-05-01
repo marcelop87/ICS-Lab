@@ -18,11 +18,11 @@ def load_data(file):
   dfl = []
   for sheet in sheets:
     dfm = pd.read_excel(file, sheet_name= sheet , header=1, usecols='A,F:O').drop([0,1,2], axis=0,)
-    dfm.sort_values(by=['Fecha'])
     dfl.append(dfm)
 
   df= pd.concat(dfl, keys= sheets, names= ['Pozo'])
   df= df.replace({'\-' : np.nan , '\*' : np.nan, '^\s*$': np.nan}, regex=True)
+  df.sort_values(by=['Fecha', 'Pozo'])
   df.reset_index(inplace=True, level='Pozo')
   df.dropna(subset='Fecha', inplace=True)
   df.Fecha = df.Fecha.dt.date
@@ -34,7 +34,7 @@ def sort_data(df):
 
   # Sort Data
   sort_column = st.sidebar.selectbox("Sort by", df.columns)
-  df = df.sort_values(by='Fecha')
+  df = df.sort_values(by=sort_column)
   df.reset_index(inplace=True, drop=True)
   return df
 
