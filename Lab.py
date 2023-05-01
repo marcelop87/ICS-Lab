@@ -18,6 +18,7 @@ def load_data(file):
   dfl = []
   for sheet in sheets:
     dfm = pd.read_excel(file, sheet_name= sheet , header=1, usecols='A,F:O').drop([0,1,2], axis=0,)
+    dfm.sort_values(by=['Fecha'])
     dfl.append(dfm)
 
   df= pd.concat(dfl, keys= sheets, names= ['Pozo'])
