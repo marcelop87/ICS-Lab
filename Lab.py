@@ -22,7 +22,7 @@ def load_data(file):
 
   df= pd.concat(dfl, keys= sheets, names= ['Pozo'])
   df= df.replace({'\-' : np.nan , '\*' : np.nan, '^\s*$': np.nan}, regex=True)
-  df.sort_values(by=['Fecha', 'Pozo'])
+  df.sort_values(by=['Fecha', 'Pozo'],inplace= True)
   df.reset_index(inplace=True, level='Pozo')
   df.dropna(subset='Fecha', inplace=True)
   df.Fecha = df.Fecha.dt.date
@@ -34,7 +34,7 @@ def sort_data(df):
 
   # Sort Data
   sort_column = st.sidebar.selectbox("Sort by", df.columns)
-  df = df.sort_values(by=sort_column)
+  df = df.sort_values(by=[sort_column])
   df.reset_index(inplace=True, drop=True)
   return df
 
