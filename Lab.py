@@ -25,7 +25,6 @@ def load_data(file):
   df.reset_index(inplace=True, level='Pozo')
   df.dropna(subset='Fecha', inplace=True)
   df.Fecha = df.Fecha.dt.date
-  df.sort_values(by=['Fecha'], inplace= True)
   return df
 
 
@@ -35,6 +34,7 @@ def sort_data(df):
   # Sort Data
   sort_column = st.sidebar.selectbox("Sort by", df.columns)
   df = df.sort_values(by=sort_column)
+  df.sort_values(by=['Fecha'], inplace= True)
   df.reset_index(inplace=True, drop=True)
   return df
 
