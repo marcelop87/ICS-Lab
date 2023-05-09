@@ -109,9 +109,7 @@ def analyze_data(data):
 def create_chart(chart_type, data, x_column, y_column):
 
   container.write(" # Data Visualization # ")
-  start, end = st.select_slider(
-    options= x_column)
-  if chart_type == "Bar":
+   if chart_type == "Bar":
 
     st.header("Bar Chart")
     fig = px.bar(data, x=x_column, y=y_column,color = 'Pozo')
@@ -191,9 +189,10 @@ def main():
 
       #Create a sidebar for user options
       st.sidebar.title("Chart Options")
+      
 
       chart_type = st.sidebar.selectbox("Select a chart type", ["Scatter", "Line", "Bar", "Histogram"])
-
+      start, end = st.select_slider( options= x_column)
       x_column = 'Fecha'
 
       y_column = st.sidebar.selectbox("Select the Y column", data.columns[2:])
