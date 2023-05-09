@@ -109,7 +109,7 @@ def analyze_data(data):
 def create_chart(chart_type, data, x_column, y_column):
 
   container.write(" # Data Visualization # ")
-   if chart_type == "Bar":
+  if chart_type == "Bar":
 
     st.header("Bar Chart")
     fig = px.bar(data, x=x_column, y=y_column,color = 'Pozo')
