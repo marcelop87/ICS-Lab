@@ -109,6 +109,8 @@ def analyze_data(data):
 def create_chart(chart_type, data, x_column, y_column):
 
   container.write(" # Data Visualization # ")
+  start, end = st.select_slider(
+    options= x_column)
   if chart_type == "Bar":
 
     st.header("Bar Chart")
@@ -122,7 +124,8 @@ def create_chart(chart_type, data, x_column, y_column):
 
   elif chart_type == "Scatter":
     st.header("Scatter Chart")
-    fig = px.scatter(data, x=x_column, y=y_column,color="Pozo", width=1000, height=800)
+    fig = px.scatter(data, x=x_column, y=y_column,color="Pozo", width=1000, height=600)
+    fig.update_xaxes(range = [start, end]
     st.plotly_chart(fig)
 
   elif chart_type == "Histogram":
