@@ -192,12 +192,12 @@ def main():
       
 
       chart_type = st.sidebar.selectbox("Select a chart type", ["Scatter", "Line", "Bar", "Histogram"])
-      start, end = st.select_slider( options= x_column)
+      
       x_column = 'Fecha'
 
       y_column = st.sidebar.selectbox("Select the Y column", data.columns[2:])
 
-
+      start, end = st.select_slider( options= x_column)
       create_chart(chart_type, data, x_column, y_column)
 
     if options =='Data Prediction': 
