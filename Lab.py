@@ -123,7 +123,7 @@ def create_chart(chart_type, data, x_column, y_column):
   elif chart_type == "Scatter":
     st.header("Scatter Chart")
     fig = px.scatter(data, x=x_column, y=y_column,color="Pozo", width=1000, height=600)
-    fig.update_xaxes(range = [start, end]
+    fig.update_xaxes(range = [start, end])
     st.plotly_chart(fig)
 
   elif chart_type == "Histogram":
