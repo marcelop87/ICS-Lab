@@ -195,7 +195,7 @@ def main():
       
       x_column = 'Fecha'
 
-      y_column = st.sidebar.selectbox("Select the Y column", data.columns[2:])
+      y_column = st.sidebar.selectbox("Select the Y column", data.columns[2:], index=7)
 
       #start, end = st.select_slider( options= x_column)
       create_chart(chart_type, data, x_column, y_column)
