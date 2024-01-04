@@ -14,7 +14,7 @@ col1,col2 = st.columns(2)
 @st.cache_data
 def load_data(file):
 
-  sheets = ['ICS-2', 'ICS-X1', 'ICS-3', 'AQUIO-X1001', 'Sep. Entrada']
+  sheets = ['ICS-2', 'ICS-X1', 'ICS-3', 'AQUIO-X1001', 'ICS-5']
   dfl = []
   for sheet in sheets:
     dfm = pd.read_excel(file, sheet_name= sheet , header=1, usecols='A,F:O').drop([0,1,2], axis=0,)
